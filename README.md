@@ -1,9 +1,32 @@
-
 # 🌿 GrassMate — Your AI-Powered Outdoor Companion
 
 **Turn your free time into a simple outdoor mission.**
 
 GrassMate is an AI-powered outdoor companion that transforms your available time, preferred activity, interests, and mission style into a personalized outdoor experience. It helps you plan an outing, discover relevant trail records, and then encourages you to put your phone away and enjoy the outdoors.
+
+[![View Repository](https://img.shields.io/badge/GitHub-View%20Repository-181717?logo=github)](https://github.com/Shubhamkumar-op/GrassMate)
+
+## 📸 Screenshots
+
+### 1. Choose Your Outdoor Mission
+
+Select your available time, activity, interests, mission style, and optional location preferences.
+
+![GrassMate application screenshot 1](screenshots/1.png)
+
+### 2. Your Personalized Mission
+
+GrassMate generates a mission with a warm-up, main activity, and cooldown.
+
+![GrassMate application screenshot 2](screenshots/2.png)
+
+### 3. Trail Recommendations and Details
+
+Explore route records retrieved by GrassMate, including the available trail metadata.
+
+![GrassMate application screenshot 3](screenshots/3.png)
+
+[View all screenshots in the repository](https://github.com/Shubhamkumar-op/GrassMate/tree/main/screenshots)
 
 ## ✨ Features
 
@@ -29,7 +52,7 @@ GrassMate is an AI-powered outdoor companion that transforms your available time
 | Tiger Cloud PostgreSQL | Database |
 | pgvector | Vector similarity search |
 | psycopg | PostgreSQL connectivity |
-| Python dotenv | Environment configuration |
+| python-dotenv | Environment configuration |
 
 ## 🏗️ How It Works
 
@@ -39,7 +62,7 @@ GrassMate is an AI-powered outdoor companion that transforms your available time
 4. PostgreSQL with pgvector retrieves relevant route records.
 5. Gemma generates personalized instructions for the three mission phases.
 6. Python controls the time allocation and assembles the final mission.
-7. Streamlit displays the mission and the retrieved route information.
+7. Streamlit displays the mission and retrieved route information.
 
 ## 📊 Data Source
 
@@ -64,17 +87,15 @@ GrassMate uses California State Parks recreational route data.
 - Python 3.10 or a compatible version supported by your dependencies
 - Git
 - Ollama
-- A local PostgreSQL database service hosted by Tiger Cloud or a compatible PostgreSQL provider
+- A PostgreSQL database hosted by Tiger Cloud or a compatible PostgreSQL provider
 - A downloaded copy of the required route dataset
 
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/Shubhamkumar-op/GrassMate.git
 cd GrassMate
 ```
-
-Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual repository URL.
 
 ### 2. Create and activate a virtual environment
 
@@ -87,13 +108,9 @@ python -m venv .venv
 
 ### 3. Install dependencies
 
-Install the packages used by your project:
-
 ```powershell
-pip install streamlit ollama sentence-transformers psycopg[binary] pgvector python-dotenv
+pip install -r requirements.txt
 ```
-
-Install any additional dependencies required by your data-ingestion scripts.
 
 ### 4. Configure environment variables
 
@@ -111,13 +128,11 @@ Use your actual database credentials locally. Never commit `.env` or publish dat
 
 ### 5. Start Ollama and download the model
 
-Make sure Ollama is installed, then run:
-
 ```powershell
 ollama pull gemma3:4b
 ```
 
-Verify that the model works:
+To verify the model works:
 
 ```powershell
 ollama run gemma3:4b
@@ -127,9 +142,7 @@ Exit the model prompt when finished testing.
 
 ### 6. Prepare the database
 
-Run the database schema and data-ingestion scripts included in your repository, following their expected order. Ensure the route records and their 768-dimensional embeddings have been loaded before running the application.
-
-The exact ingestion commands depend on the scripts present in your repository.
+Run the database schema and data-ingestion scripts included in the repository in their expected order. Ensure the route records and their 768-dimensional embeddings have been loaded before running the application.
 
 ### 7. Launch GrassMate
 
