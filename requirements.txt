@@ -1,0 +1,7 @@
+streamlit
+ollama
+sentence-transformers
+psycopg[binary]
+pgvector
+python-dotenv
+numpy
